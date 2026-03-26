@@ -1,4 +1,4 @@
-# Interview AI — AI-Powered Job Interview Preparation Platform
+# PrepMate AI — AI-Powered Job Interview Preparation Platform
 
 A full-stack MERN application that helps candidates prepare for job interviews using Google Gemini AI. Upload your resume, paste the job description, and get a personalized interview report with technical questions, behavioral questions, skill gap analysis, a preparation plan, and an AI-generated tailored resume PDF — all in one place.
 
