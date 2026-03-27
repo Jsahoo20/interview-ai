@@ -20,7 +20,8 @@ export const useAuth = () => {
             }
             return false
         } catch (err) {
-            return false
+            const message = err?.response?.data?.message || "Login failed. Please try again."
+            throw new Error(message)
         } finally {
             setLoading(false)
         }
@@ -30,9 +31,14 @@ export const useAuth = () => {
         setLoading(true)
         try {
             const data = await register({ username, email, password })
-            setUser(data.user)
+            if (data && data.user) {
+                setUser(data.user)
+                return true
+            }
+            return false
         } catch (err) {
-
+            const message = err?.response?.data?.message || "Registration failed. Please try again."
+            throw new Error(message)
         } finally {
             setLoading(false)
         }
@@ -41,7 +47,7 @@ export const useAuth = () => {
     const handleLogout = async () => {
         setLoading(true)
         try {
-            const data = await logout()
+            await logout()
             setUser(null)
         } catch (err) {
 
@@ -54,9 +60,10 @@ export const useAuth = () => {
 
         const getAndSetUser = async () => {
             try {
-
                 const data = await getMe()
-                setUser(data.user)
+                if (data && data.user) {
+                    setUser(data.user)
+                }
             } catch (err) { } finally {
                 setLoading(false)
             }

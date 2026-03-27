@@ -13,8 +13,12 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const success = await handleLogin({email,password})
-        if (success) navigate('/')
+        try {
+            const success = await handleLogin({email,password})
+            if (success) navigate('/')
+        } catch (err) {
+            alert(err.message || "Login failed. Please try again.")
+        }
     }
 
     if(loading){

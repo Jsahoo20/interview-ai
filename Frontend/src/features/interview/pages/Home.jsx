@@ -37,9 +37,13 @@ const Home = () => {
             return
         }
 
-        const data = await generateReport({ jobDescription, selfDescription, resumeFile })
-        if (data && data._id) {
-            navigate(`/interview/${data._id}`)
+        try {
+            const data = await generateReport({ jobDescription, selfDescription, resumeFile })
+            if (data && data._id) {
+                navigate(`/interview/${data._id}`)
+            }
+        } catch (error) {
+            alert(error.message || "Something went wrong. Please try again.")
         }
     }
 
