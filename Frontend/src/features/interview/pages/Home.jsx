@@ -58,6 +58,16 @@ const Home = () => {
     return (
         <div className='home-page'>
 
+            {/* Top Navbar / Brand */}
+            <nav className='top-navbar'>
+                <div className='top-navbar__brand'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+                    </svg>
+                    <span>PrepMate <span className='highlight'>AI</span></span>
+                </div>
+            </nav>
+
             {/* Page Header */}
             <header className='page-header'>
                 <h1>Create Your Custom <span className='highlight'>Interview Plan</span></h1>
@@ -182,9 +192,7 @@ const Home = () => {
 
             {/* Page Footer */}
             <footer className='page-footer'>
-                <a href='#'>Privacy Policy</a>
-                <a href='#'>Terms of Service</a>
-                <a href='#'>Help Center</a>
+                <p>Made with <span className='heart'>❤️</span> by <strong>Js</strong></p>
             </footer>
         </div>
     )
